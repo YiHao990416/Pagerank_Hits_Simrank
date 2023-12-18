@@ -1,6 +1,9 @@
 import pandas as pd
 import numpy as np
 from collections import OrderedDict
+import sys
+
+np.set_printoptions(threshold=sys.maxsize)
 names = ['out','in']
 graph = pd.read_csv("Project3 Dataset/graph_3.txt", header = None, names=names)
 
@@ -43,10 +46,6 @@ def hits_algorithms(df):
     
     return hubs, roots
 
-    
-
-hits_algorithms(graph)
-
 
 
 def pagerank_algorithms(df):
@@ -86,8 +85,6 @@ def pagerank_algorithms(df):
     
     return pagerank
     
-
-pagerank_algorithms(graph)
     
 
 
@@ -135,18 +132,11 @@ def simrank_algorithms(df):
                     else:
                         new_simrank[i,j] =(c/(roots_counts[unique_items[i]]*roots_counts[unique_items[j]]))*inlink_simrank
 
-
-
-                 
-                    
-
-                    # new_simrank = (c/(roots_counts[unique_items[i]]*roots_counts[unique_items[j]]))
         simrank = new_simrank
     
     return simrank
                 
-simrank_algorithms(graph)
-    
+
 
 
 

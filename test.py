@@ -1,10 +1,10 @@
 import numpy as np
 import pandas as pd
-
-data = {"node": [1,2,3],'rank': [4,5,6], 'outlink':[7,8,9]}
-new_df = pd.DataFrame(data)
-
-print(new_df)
-
-
+names = ['index','out','in']
+edges =[]
+with open("Project3 Dataset/ibm-5000.txt", 'r') as f: 
+    for line in f.readlines():
+        line = line.strip()
+        edge = line.split()[1:]
+        edges.append(edge)
 
